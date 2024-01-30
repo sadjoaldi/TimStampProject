@@ -1,6 +1,6 @@
-drop database if exists TimStamp; 
-create database TimStamp;
-use TimStamp;
+drop database if exists TimeStamp; 
+create database TimeStamp;
+use TimeStamp;
 drop table if exists users;
 drop table if exists workplace;
 drop table if exists agenda;
@@ -9,10 +9,10 @@ create table users(
   id int not null auto_increment primary key,
   email varchar(255) unique not null,
   password varchar(255) not null,
-  name varchar(255) not null,
-  prenom varchar(255) not null,
-  create_date datetime default current_timestamp,
-  last_connexion datetime,
+  firstName varchar(255) not null,
+  lastName varchar(255) not null,
+  createDate datetime default current_timestamp,
+  lastConnexion datetime,
   profile enum('admin', 'user') default 'user'
 );
 
@@ -23,8 +23,8 @@ create table workplace(
   contact varchar(255) not null,
   users_id int,
   constraint fk_users_workplace foreign key (users_id) references users(id) ON DELETE CASCADE,
-  start_time datetime,
-  end_time datetime
+  startTime datetime,
+  endTime datetime
 );
 
 create table agenda(
