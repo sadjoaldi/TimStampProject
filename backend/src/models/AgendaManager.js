@@ -16,7 +16,7 @@ class AgendaManager extends AbstractManager {
     workplaceId,
   }) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (st, passeword,firstName,lastName,createDate,lastConnection,profile) VALUES (?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (start_date, end_date,total_majored_hours,total_normal_hours,users_id,workplace_id) VALUES (?,?,?,?,?,?)`,
       [
         startDate,
         endDate,
@@ -70,7 +70,7 @@ class AgendaManager extends AbstractManager {
     }
   ) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET email = ?, passeword = ?, firstName = ?, lastName = ?, createDate = ?, lastConnection = ?, profile = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET start_date = ?, end_date = ?, total_majored_hours = ?, total_normal_hours = ?, users_id = ?, workplace_id = ?,  WHERE id = ?`,
       [
         startDate,
         endDate,

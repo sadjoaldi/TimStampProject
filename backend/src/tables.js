@@ -2,10 +2,11 @@
 
 // Import des modules gestionnaires responsables du traitement des opérations de données sur les tables
 
+const AgendaManager = require("./models/AgendaManager");
 const UsersManager = require("./models/UsersManager");
 const WorkplaceManager = require("./models/WorkplaceManager");
 
-const managers = [UsersManager, WorkplaceManager];
+const managers = [UsersManager, WorkplaceManager, AgendaManager];
 
 // Création d'un objet vide pour contenir les gestionnaires de données pour différentes tables
 const tables = {};

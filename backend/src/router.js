@@ -4,6 +4,7 @@ const router = express.Router();
 
 const userControllers = require("./controllers/usersControllers");
 const workplaceControllers = require("./controllers/workplaceControllers");
+const agendaControllers = require("./controllers/agendaControllers");
 
 // users routes
 router.get("/users", userControllers.browse);
@@ -18,5 +19,12 @@ router.get("/workplace/:id", workplaceControllers.read);
 router.post("/workplace", workplaceControllers.add);
 router.put("/workplace/:id", workplaceControllers.edit);
 router.delete("/workplace/:id", workplaceControllers.destroy);
+
+// agenda routes
+router.get("/agenda", agendaControllers.browse);
+router.get("/agenda/:id", agendaControllers.read);
+router.post("/agenda", agendaControllers.add);
+router.put("/agenda/:id", agendaControllers.edit);
+router.delete("/agenda/:id", agendaControllers.destroy);
 
 module.exports = router;
