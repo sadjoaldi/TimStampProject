@@ -7,6 +7,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Notfound from "./pages/Notfound";
 import Connexion from "./pages/Connexion";
+import Inscription from "./pages/Inscription";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/connexion",
         element: <Connexion />,
+      },
+      {
+        path: "/inscription",
+        element: <Inscription />,
       },
     ],
   },

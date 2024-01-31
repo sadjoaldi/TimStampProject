@@ -17,6 +17,18 @@ section {
     border-radius: 0.4rem;
   }
 
+  ul {
+    background: $buttonColor;
+    position: relative;
+
+    li {
+      list-style: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
   .icon {
     font-size: 2.23rem;
     position: absolute;

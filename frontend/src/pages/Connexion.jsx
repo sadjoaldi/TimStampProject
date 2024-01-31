@@ -2,9 +2,10 @@ import React from "react";
 
 function Connexion() {
   return (
-    <div>
-      <h1>je suis un formulaire</h1>
-    </div>
+    <>
+      <h1>je suis un formulaire de connexion</h1>
+      <p>Page en cours de conception</p>
+    </>
   );
 }
 

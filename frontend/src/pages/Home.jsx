@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
+import { MdOutlineLogin } from "react-icons/md";
 import "../styles/home.scss";
 import { Link } from "react-router-dom";
 
 function Home() {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const toggle = () => setIsOpen(!isOpen);
   const [menuBurger, setMenuBurger] = useState(false);
   const handleClick = () => {
     setMenuBurger(!menuBurger);
@@ -22,13 +21,14 @@ function Home() {
       )}
 
       {menuBurger && (
-        <div>
-          <ul>
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
-          </ul>
-        </div>
+        <ul>
+          <li>
+            Login
+            <Link to="/connexion">
+              <MdOutlineLogin />{" "}
+            </Link>
+          </li>
+        </ul>
       )}
       <div className="home_container">
         <h2>TimeStamp</h2>
@@ -44,7 +44,7 @@ function Home() {
           perferendis ut reprehenderit dolorum vero ipsa, minus omnis aliquid!
           Enim?
         </p>
-        <Link to="/connexion">
+        <Link to="/inscription">
           <button type="button">
             {" "}
             <span>Start free tracking</span>
