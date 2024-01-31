@@ -1,0 +1,68 @@
+@import "variables.scss";
+
+.form {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  form {
+    height: 70svh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $buttonColor;
+    width: 70%;
+    margin: 0 auto;
+    background: $thirdColor;
+    padding: 0 1rem;
+
+    h1 {
+      margin: 4rem 0 1.23rem;
+      color: $textColor;
+    }
+
+    label {
+      margin: 0.12rem;
+      font-size: 0.55rem;
+      color: $buttonColor;
+      opacity: 0.7;
+    }
+
+    input {
+      padding: 0.5rem;
+      outline: none;
+      border-radius: 0.4rem;
+      border: 0.1rem solid $secondaryColor;
+
+      &:focus {
+        outline: none;
+        border-color: $buttonColor;
+        box-shadow: 0 0 0.12rem $buttonColor;
+      }
+    }
+  }
+
+  button {
+    margin: 1rem 0 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid $secondaryColor;
+    background: $buttonColor;
+    color: $thirdColor;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: $secondaryColor;
+      color: $buttonColor;
+      font-weight: bold;
+    }
+  }
+
+  span {
+    margin: 1rem;
+    color: $textColor;
+  }
+}
