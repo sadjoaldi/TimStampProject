@@ -1,5 +1,5 @@
 #root {
-  background: #00b2b2;
+  background: url("./assets/background.jpg") no-repeat center center fixed;
   min-height: 100svh;
   color: whitesmoke;
 }
