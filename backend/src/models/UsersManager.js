@@ -9,7 +9,7 @@ class UsersManager extends AbstractManager {
   // C: ajoute un nouvel utilisateur avec create à la table users.
   async create({
     email,
-    passeword,
+    hashedPassword,
     firstName,
     lastName,
     createDate,
@@ -17,10 +17,10 @@ class UsersManager extends AbstractManager {
     profile,
   }) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (email, passeword,firstName,lastName,createDate,lastConnection,profile) VALUES (?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (email, hashed_password,first_name,last_name,create_date,last_connection,profile) VALUES (?,?,?,?,?,?,?)`,
       [
         email,
-        passeword,
+        hashedPassword,
         firstName,
         lastName,
         createDate,
@@ -64,7 +64,7 @@ class UsersManager extends AbstractManager {
     id,
     {
       email,
-      passeword,
+      hashedPassword,
       firstName,
       lastName,
       createDate,
@@ -73,10 +73,10 @@ class UsersManager extends AbstractManager {
     }
   ) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET email = ?, passeword = ?, firstName = ?, lastName = ?, createDate = ?, lastConnection = ?, profile = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET email = ?, hashed_password = ?, first_name = ?, last_name = ?, create_date = ?, last_connection = ?, profile = ? WHERE id = ?`,
       [
         email,
-        passeword,
+        hashedPassword,
         firstName,
         lastName,
         createDate,

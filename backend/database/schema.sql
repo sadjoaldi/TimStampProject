@@ -8,11 +8,11 @@ drop table if exists agenda;
 create table users(
   id int not null auto_increment primary key,
   email varchar(255) unique not null,
-  password varchar(255) not null,
-  firstName varchar(255) not null,
-  lastName varchar(255) not null,
-  createDate datetime default current_timestamp,
-  lastConnexion datetime,
+  hashed_password text not null,
+  first_name varchar(255) not null,
+  last_name varchar(255) not null,
+  create_date datetime default current_timestamp,
+  last_connection datetime,
   profile enum('admin', 'user') default 'user'
 );
 
@@ -23,8 +23,8 @@ create table workplace(
   contact varchar(255) not null,
   users_id int,
   constraint fk_users_workplace foreign key (users_id) references users(id) ON DELETE CASCADE,
-  startTime datetime,
-  endTime datetime
+  start_time datetime,
+  end_time datetime
 );
 
 create table agenda(

@@ -9,7 +9,7 @@ class WorkplaceManager extends AbstractManager {
   // C: ajoute un nouvel utilisateur avec create à la table users.
   async create({ name, address, contact, usersId, startTime, endTime }) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (name,address,contact,usersId,startTime,endTime) VALUES (?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (name,address,contact,usersId,start_time,end_time) VALUES (?,?,?,?,?,?)`,
       [name, address, contact, usersId, startTime, endTime]
     );
 
@@ -46,7 +46,7 @@ class WorkplaceManager extends AbstractManager {
   // U: modifie un utilisateur spécifique (update) dans la table users en fonction de l'id.
   async update({ name, address, contact, usersId, startTime, endTime }) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET name = ?, address = ?, contact = ?, usersId = ?, startTime = ?, endTime = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET name = ?, address = ?, contact = ?, usersId = ?, start_time = ?, end_time = ? WHERE id = ?`,
       [name, address, contact, usersId, startTime, endTime]
     );
     return rows[0];

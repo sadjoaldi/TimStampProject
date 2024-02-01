@@ -5,9 +5,9 @@ const tables = require("../tables");
 //  B: recupère tous les utilisateurs avec browse readAll
 const browse = async (req, res, next) => {
   try {
-    const users = await tables.users.readAll();
+    const use = await tables.users.readAll();
 
-    res.json(users);
+    res.json(use);
   } catch (err) {
     next(err);
   }
@@ -28,7 +28,7 @@ const read = async (req, res, next) => {
   }
 };
 
-//  E: update un utilisateur spécifique par son ID avec edit
+//  E: update ou modifi un utilisateur spécifique par son ID avec edit
 const edit = async (req, res, next) => {
   try {
     const { id } = req.params;
