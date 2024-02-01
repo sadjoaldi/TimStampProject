@@ -61,8 +61,19 @@
     }
   }
 
-  span {
-    margin: 1rem;
-    color: $textColor;
+  p {
+    a {
+      margin: 1rem;
+      color: $textColor;
+    }
+  }
+
+  .reset {
+    margin: 1.21rem 0 0;
+    a {
+      margin: 1rem;
+      color: $textColor;
+      font-size: 0.83rem;
+    }
   }
 }
