@@ -1,13 +1,12 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import Calendar from "../components/Calendar";
 
 function Dashboard() {
   return (
     <div>
       <Sidebar />
-      <h1>Je suis le dashboard</h1>
-      <Calendar />
+      <Outlet />
     </div>
   );
 }
