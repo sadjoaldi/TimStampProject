@@ -25,7 +25,7 @@ section {
       list-style: none;
       position: absolute;
       top: 0;
-      left: 0;
+      left: 100px;
       display: flex;
       align-items: center;
 
@@ -47,65 +47,77 @@ section {
     cursor: pointer;
   }
 
-  .home_container {
+  .home {
     display: flex;
-    flex-direction: column;
-    // align-items: center;
-    margin: 5rem 0 0;
+    align-items: center;
 
-    h2 {
-      margin: 0 0 1.5rem 2rem;
-      font-size: 2.2rem;
-    }
-
-    p {
-      line-height: 1.4;
-      color: $thirdColor;
-      width: 85%;
-      margin: 0 auto;
-    }
-
-    a {
+    .home_container {
       display: flex;
-    }
-    button {
-      display: inline-block;
-      border-radius: 0.4rem;
-      background: $buttonColor;
-      border: none;
-      color: $thirdColor;
-      text-align: center;
-      font-size: 1.2rem;
-      padding: 1rem;
-      width: 60%;
-      transition: all 0.5s;
-      cursor: pointer;
-      margin: 1.8rem auto;
+      flex-direction: column;
+      // align-items: center;
+      margin: 5rem 0 0;
 
-      &:hover span {
-        padding-right: 1rem;
+      h2 {
+        margin: 0 0 1.5rem 2rem;
+        font-size: 2.2rem;
       }
 
-      & span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
+      p {
+        line-height: 1.4;
+        color: $thirdColor;
+        width: 75%;
+        margin: 1.5rem 2.2rem;
+      }
 
-        &:after {
-          content: "»";
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -15px;
+      a {
+        display: flex;
+      }
+      button {
+        display: inline-block;
+        border-radius: 4.4rem;
+        background: $buttonColor;
+        border: none;
+        color: $thirdColor;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 1rem;
+        width: 32%;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: auto 2.2rem;
+
+        &:hover span {
+          padding-right: 1rem;
+        }
+
+        & span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
           transition: 0.5s;
+
+          &:after {
+            content: "»";
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -15px;
+            transition: 0.5s;
+          }
         }
       }
+
+      button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
     }
 
-    button:hover span:after {
-      opacity: 1;
-      right: 0;
+    .picture {
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

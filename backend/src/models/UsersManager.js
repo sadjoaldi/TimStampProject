@@ -60,18 +60,16 @@ class UsersManager extends AbstractManager {
   }
 
   // U: modifie un utilisateur spécifique (update) dans la table users en fonction de l'id.
-  async update(
+  async update({
+    email,
+    hashedPassword,
+    firstName,
+    lastName,
+    createDate,
+    lastConnection,
+    profile,
     id,
-    {
-      email,
-      hashedPassword,
-      firstName,
-      lastName,
-      createDate,
-      lastConnection,
-      profile,
-    }
-  ) {
+  }) {
     const [rows] = await this.database.query(
       `UPDATE ${this.table} SET email = ?, hashed_password = ?, first_name = ?, last_name = ?, create_date = ?, last_connection = ?, profile = ? WHERE id = ?`,
       [
@@ -85,7 +83,7 @@ class UsersManager extends AbstractManager {
         id,
       ]
     );
-    return rows[0];
+    return [rows];
   }
 
   // D: supprime un utilisateur spécifique (delete) dans la table en fonction de l'id.
@@ -94,7 +92,7 @@ class UsersManager extends AbstractManager {
       `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
-    return rows[0];
+    return [rows];
   }
 }
 
