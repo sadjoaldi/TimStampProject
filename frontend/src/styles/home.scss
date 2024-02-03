@@ -1,6 +1,10 @@
 @use "_variables.scss" as *;
 
 section {
+  min-height: 100svh;
+  background: url("../assets/background.jpg") no-repeat center/cover;
+  color: whitesmoke;
+  background-size: cover;
   position: relative;
   display: flex;
   align-items: center;
