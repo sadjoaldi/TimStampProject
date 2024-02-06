@@ -6,8 +6,9 @@ import hibouneige from "./hibou_neige.jpg";
 import hibouperche from "./hibou_perche.jpg";
 import lune from "./lune_nuit.jpg";
 import randoneur from "./randonneur.jpg";
+import profAvatar from "./profileAvatar.jpg";
 
-export default {
+const iconsProf = {
   logo,
   timestamp,
   background,
@@ -16,4 +17,7 @@ export default {
   hibouperche,
   lune,
   randoneur,
+  profAvatar,
 };
+
+export default iconsProf;

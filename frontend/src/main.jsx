@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
@@ -32,22 +31,22 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <Dashboard />,
         children: [
-          {
-            path: "/summary",
-            // element: <Summary />,
-          },
-          {
-            path: "/calendar",
-            // element: <Calendar />,
-          },
-          {
-            path: "/profile",
-            // element: <Profile />,
-          },
-          {
-            path: "/settings",
-            // element: <Settings />,
-          },
+          // {
+          //   path: "/summary",
+          //    element: <Summary />,
+          // },
+          // {
+          //   path: "/calendar",
+          //   element: <Calendar />,
+          // },
+          // {
+          //   path: "/profile",
+          //   element: <Profile />,
+          // },
+          // {
+          //   path: "/settings",
+          //   // element: <Settings />,
+          // },
         ],
       },
     ],
