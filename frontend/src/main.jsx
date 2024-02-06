@@ -8,6 +8,7 @@ import Notfound from "./pages/Notfound";
 import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
 import Dashboard from "./pages/Dashboard";
+import Calendar from "./pages/Calendar";
 
 const router = createBrowserRouter([
   {
@@ -30,25 +31,24 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard />,
-        children: [
-          // {
-          //   path: "/summary",
-          //    element: <Summary />,
-          // },
-          // {
-          //   path: "/calendar",
-          //   element: <Calendar />,
-          // },
-          // {
-          //   path: "/profile",
-          //   element: <Profile />,
-          // },
-          // {
-          //   path: "/settings",
-          //   // element: <Settings />,
-          // },
-        ],
       },
+
+      // {
+      //   path: "/summary",
+      //    element: <Summary />,
+      // },
+      {
+        path: "/calendar",
+        element: <Calendar />,
+      },
+      // {
+      //   path: "/clients",
+      //   element: <Profile />,
+      // },
+      // {
+      //   path: "/settings",
+      //   // element: <Settings />,
+      // },
     ],
   },
 ]);

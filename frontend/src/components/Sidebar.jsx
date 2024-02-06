@@ -16,25 +16,25 @@ const navLinks = [
     id: 1,
     title: "Timer",
     img: <TfiTimer />,
-    url: "/pro/dashboard/reservationdashboard",
+    url: "/calendar",
   },
   {
     id: 2,
     title: "Rapport",
     img: <TbChartInfographic />,
-    url: "/pro/dashboard/agenda",
+    url: "/rapport",
   },
   {
     id: 3,
     title: "Clients",
     img: <FaCircleUser />,
-    url: "/pro/dashboard/reservationdashboard",
+    url: "/clients",
   },
   {
     id: 4,
     title: "Settings",
     img: <GrUserSettings />,
-    url: "/pro/dashboard/agenda",
+    url: "/settings",
   },
 ];
 
@@ -58,7 +58,7 @@ function Sidebar() {
         <ul className="navlist">
           {navLinks.map((navLink) => (
             <li key={navLink.id}>
-              <Link to="/" className={`navlink ${navLink.url}`}>
+              <Link to={`${navLink.url}`} className={`navlink ${navLink.url}`}>
                 <span> {navLink.img}</span>
                 {navLink.title}
               </Link>
