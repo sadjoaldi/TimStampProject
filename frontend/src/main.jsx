@@ -9,6 +9,9 @@ import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
 import Dashboard from "./pages/Dashboard";
 import Calendar from "./pages/Calendar";
+import Clients from "./pages/Clients";
+import Rapport from "./pages/Rapport";
+import Settings from "./pages/Settings";
 
 const router = createBrowserRouter([
   {
@@ -29,26 +32,27 @@ const router = createBrowserRouter([
         element: <Inscription />,
       },
       {
-        path: "dashboard",
+        path: "/dashboard",
         element: <Dashboard />,
+        children: [
+          {
+            path: "calendar",
+            element: <Calendar />,
+          },
+          {
+            path: "rapport",
+            element: <Rapport />,
+          },
+          {
+            path: "clients",
+            element: <Clients />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+        ],
       },
-
-      // {
-      //   path: "/summary",
-      //    element: <Summary />,
-      // },
-      {
-        path: "/calendar",
-        element: <Calendar />,
-      },
-      // {
-      //   path: "/clients",
-      //   element: <Profile />,
-      // },
-      // {
-      //   path: "/settings",
-      //   // element: <Settings />,
-      // },
     ],
   },
 ]);

@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import Calendar from "./Calendar";
 import "../styles/dashboard.scss";
 
 function Dashboard() {
@@ -12,7 +11,6 @@ function Dashboard() {
       </div>
       <div className="dashBox">
         <Outlet />
-        <Calendar />
       </div>
     </div>
   );

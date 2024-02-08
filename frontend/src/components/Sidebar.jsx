@@ -16,25 +16,25 @@ const navLinks = [
     id: 1,
     title: "Timer",
     img: <TfiTimer />,
-    url: "/calendar",
+    url: "calendar",
   },
   {
     id: 2,
     title: "Rapport",
     img: <TbChartInfographic />,
-    url: "/rapport",
+    url: "rapport",
   },
   {
     id: 3,
     title: "Clients",
     img: <FaCircleUser />,
-    url: "/clients",
+    url: "clients",
   },
   {
     id: 4,
     title: "Settings",
     img: <GrUserSettings />,
-    url: "/settings",
+    url: "settings",
   },
 ];
 

@@ -6,6 +6,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 // import { IoIosCalendar } from "react-icons/io";
 import "../styles/calendar.scss";
 import { useEffect, useRef, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 function Calendar() {
   // const [events, setEvents] = useState([]);
@@ -31,6 +32,7 @@ function Calendar() {
   }, []);
   return (
     <>
+      {" "}
       <div className="project_name">
         <input
           type="text"
@@ -59,7 +61,8 @@ function Calendar() {
           />
           ;
         </div>
-      </div>
+      </div>{" "}
+      <Outlet />
     </>
   );
 }
