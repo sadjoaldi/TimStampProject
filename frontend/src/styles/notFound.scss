@@ -1,0 +1,46 @@
+@use "_variables.scss" as *;
+
+.notfound {
+  min-height: 100svh;
+  background: url(".././assets/notfound.jpg");
+  background-size: cover;
+  color: $secondaryColor;
+  display: grid;
+
+  .content {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+
+    h1 {
+      font-size: 12.5rem;
+      color: $primaryColor;
+    }
+
+    span {
+      transform: perspective(1px) translateZ(0);
+      font-size: 2.5rem;
+    }
+
+    p {
+      color: $errorMessage;
+      font-size: 1.5rem;
+    }
+  }
+  button {
+    padding: 0.9rem;
+    width: 20%;
+    height: 20%;
+    margin: 0 auto;
+    border: 0.1rem solid $secondaryColor;
+    border-radius: 1.4rem;
+    background: transparent;
+    backdrop-filter: blur(0.5rem);
+
+    a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: $secondaryColor;
+    }
+  }
+}

@@ -7,11 +7,13 @@ import hibouperche from "./hibou_perche.jpg";
 import lune from "./lune_nuit.jpg";
 import randoneur from "./randonneur.jpg";
 import profAvatar from "./profileAvatar.jpg";
+import notfound from "./notfound.jpg";
 
 const iconsProf = {
   logo,
   timestamp,
   background,
+  notfound,
   hibouforet,
   hibouneige,
   hibouperche,
