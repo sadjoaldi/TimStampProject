@@ -70,16 +70,27 @@ class UsersManager extends AbstractManager {
     profile,
     id,
   }) {
+    // Récupérer l'utilisateur actuel de la base de données
+    const [currentUser] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
+
+    // Utiliser les valeurs existantes comme valeurs par défaut
     const [rows] = await this.database.query(
       `UPDATE ${this.table} SET email = ?, hashed_password = ?, first_name = ?, last_name = ?, create_date = ?, last_connection = ?, profile = ? WHERE id = ?`,
       [
-        email,
-        hashedPassword,
-        firstName,
-        lastName,
-        createDate,
-        lastConnection,
-        profile,
+        email !== undefined ? email : currentUser.email,
+        hashedPassword !== undefined
+          ? hashedPassword
+          : currentUser.hashed_password,
+        firstName !== undefined ? firstName : currentUser.first_name,
+        lastName !== undefined ? lastName : currentUser.last_name,
+        createDate !== undefined ? createDate : currentUser.create_date,
+        lastConnection !== undefined
+          ? lastConnection
+          : currentUser.last_connection,
+        profile !== undefined ? profile : currentUser.profile,
         id,
       ]
     );

@@ -5,6 +5,7 @@
 const AgendaManager = require("./models/AgendaManager");
 const UsersManager = require("./models/UsersManager");
 const WorkplaceManager = require("./models/WorkplaceManager");
+// const AuthManager = require("./models/AuthManager");
 
 const managers = [UsersManager, WorkplaceManager, AgendaManager];
 

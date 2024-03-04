@@ -1,3 +1,4 @@
+import bcrypt from "bcryptjs";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/inscription.scss";
@@ -24,7 +25,7 @@ function Inscription() {
   // const [passwordFocus, setPasswordFocus] = useState(false);
   // const [errMgs, setErrMgs] = useState("");
 
-  // useEffect() permet de gérer les effets de bord
+  // useEffect() permet de gérer les effets de bord c'est-à-dire les effets secondaires
   useEffect(() => {
     const result = MAIL_REGEX.test(email);
     setEmailValid(result);
@@ -39,23 +40,23 @@ function Inscription() {
     // setErrMgs("");
   }, [email, password]);
 
-  const buttonUpdate = () => {
-    const button = document.getElementById("button");
-    button.disabled = !confirmPassword;
-    button.style.opacity = button.disabled ? 0.5 : 1;
-  };
-  useEffect(() => {
-    buttonUpdate();
-  }, [confirmPassword]);
+  // const buttonUpdate = () => {
+  //   const button = document.getElementById("button");
+  //   button.disabled = !confirmPassword;
+  //   button.style.opacity = button.disabled ? 0.5 : 1;
+  // };
+  // useEffect(() => {
+  //   buttonUpdate();
+  // }, [confirmPassword]);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const mail = e.target.elements.email.value;
-    // const pasword = e.target.elements.hashed_password.value;
 
     try {
+      const hashedPassword = bcrypt.hashSync(password, 10); // Hash the password
+
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/users`,
         {
@@ -63,7 +64,7 @@ function Inscription() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email: emailRef.current.value.toString(),
-            password,
+            hashedPassword, // Send the hashed password
             firstName: FirstnameRef.current.value.toString(),
             lastName: LastnameRef.current.value.toString(),
             profile: "user",
@@ -71,42 +72,15 @@ function Inscription() {
         }
       );
       if (response.status === 201) {
-        navigate("/");
+        navigate("/connexion");
       } else {
         console.info(response);
-        // throw new Error("Erreur lors de l'inscription");
       }
-      // Si l'inscription a réussi, redirigez l'utilisateur vers le tableau de bord
-
-      // if (response.status === 201) {
-      //   const userData = await response.json();
-
-      //   const userResponse = await fetch(
-      //     `${import.meta.env.VITE_BACKEND_URL}/api/users`,
-      //     {
-      //       method: "POST",
-      //       headers: { "Content-Type": "application/json" },
-      //       body: JSON.stringify({
-      //         userId: userData.insertId,
-      //         firstName: FirstnameRef.current.value.toString(),
-      //         lastName: LastnameRef.current.value.toString(),
-      //         email: emailRef.current.value.toString(),
-      //       }),
-      //     }
-      //   );
-
-      //   if (userResponse.status === 201) {
-      //     navigate("/");
-      //   } else {
-      //     console.info(userResponse);
-      //   }
-      // } else {
-      //   console.info(response);
-      // }
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
     <section className="formular_box">
       <div className="boxContent">
@@ -204,7 +178,7 @@ function Inscription() {
                 special (@!%_*?&-).
                 <br />
               </p> */}
-              <button type="button" id="button">
+              <button onClick={handleSubmit} type="submit" id="button">
                 Continue to signup
               </button>{" "}
               <p>

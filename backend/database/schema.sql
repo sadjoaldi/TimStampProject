@@ -8,9 +8,9 @@ drop table if exists agenda;
 create table users(
   id int not null auto_increment primary key,
   email varchar(255) unique not null,
-  hashed_password text not null,
-  first_name varchar(255) not null,
-  last_name varchar(255) not null,
+  hashed_password text ,
+  first_name varchar(255) ,
+  last_name varchar(255) ,
   create_date datetime default current_timestamp,
   last_connection datetime,
   profile enum('admin', 'user') default 'user'

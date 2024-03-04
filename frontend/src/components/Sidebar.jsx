@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { TfiTimer } from "react-icons/tfi";
 import { TbChartInfographic } from "react-icons/tb";
 import { FaCircleUser } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
-import { BiLogOut } from "react-icons/bi";
 import { IoIosNotifications } from "react-icons/io";
 import { GrUserSettings } from "react-icons/gr";
 import iconsProf from "../assets";
 import "../styles/sidebar.scss";
+import Logout from "../pages/Logout";
 
 // sidebar links
 const navLinks = [
@@ -43,7 +43,9 @@ function Sidebar() {
     <aside className="sidebar">
       <div className="profile">
         <div className="profile_box">
-          <img src={iconsProf.profAvatar} alt="Avatar" width="100px" />
+          <NavLink to="/profile" className="profile_link">
+            <img src={iconsProf.profAvatar} alt="Avatar" width="100px" />
+          </NavLink>
           <div className="describ">
             <span className="flname">Jason D Ronson</span>
             <span className="work">
@@ -69,7 +71,7 @@ function Sidebar() {
       <div className="otherIcons">
         <FaQuestionCircle />
         <IoIosNotifications />
-        <BiLogOut className="logout" />
+        <Logout />
       </div>
     </aside>
   );

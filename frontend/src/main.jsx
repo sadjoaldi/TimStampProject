@@ -12,6 +12,8 @@ import Calendar from "./pages/Calendar";
 import Clients from "./pages/Clients";
 import Rapport from "./pages/Rapport";
 import Settings from "./pages/Settings";
+// import Profile from "./pages/Profile";
+import ProfileSettings from "./pages/ProfileSettings";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
             element: <Settings />,
           },
         ],
+      },
+      // {
+      //   path: "profile",
+      //   element: <Profile />,
+      // },
+      {
+        path: "profileSettings",
+        element: <ProfileSettings />,
       },
     ],
   },
