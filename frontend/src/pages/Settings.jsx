@@ -3,9 +3,6 @@ import { jwtDecode } from "jwt-decode";
 import { SiGooglecalendar } from "react-icons/si";
 import { PiMicrosoftOutlookLogo } from "react-icons/pi";
 import Cookies from "js-cookie";
-
-// import getCookies from "js-cookie";
-// Import the getCookie function from the cookies module with the correct file extension
 import profileAvatar from "../assets/profileAvatar.jpg";
 import "../styles/settings.scss";
 
@@ -25,6 +22,7 @@ function Settings() {
     setUserName(decodedToken.name);
     setUserEmail(decodedToken.email);
   }, []);
+
   return (
     <>
       <div className="profilInfo">

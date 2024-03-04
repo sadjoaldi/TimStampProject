@@ -1,11 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import { AuthContext } from "../context/AuthContext"; // Import your AuthContext
 import "../styles/connexion.scss";
 
 function Connexion() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
+  const { updateUser } = useContext(AuthContext); // Use your AuthContext
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,7 +28,10 @@ function Connexion() {
       );
       if (response.status === 200) {
         const data = await response.json();
-        localStorage.setItem("authToken", data.token);
+        Cookies.set("authToken", data.token);
+        Cookies.set("userEmail", data.user.email);
+        updateUser(data.user); // Update the user ID in your context
+        console.info(data);
         navigate("/dashboard"); // or navigate to another page
       } else {
         console.info(response);

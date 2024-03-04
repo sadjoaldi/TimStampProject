@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { TfiTimer } from "react-icons/tfi";
 import { TbChartInfographic } from "react-icons/tb";
@@ -6,6 +6,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrUserSettings } from "react-icons/gr";
+import { AuthContext } from "../context/AuthContext";
 import iconsProf from "../assets";
 import "../styles/sidebar.scss";
 import Logout from "../pages/Logout";
@@ -39,6 +40,8 @@ const navLinks = [
 ];
 
 function Sidebar() {
+  const { user } = useContext(AuthContext); // Use your AuthContext
+
   return (
     <aside className="sidebar">
       <div className="profile">
@@ -47,15 +50,17 @@ function Sidebar() {
             <img src={iconsProf.profAvatar} alt="Avatar" width="100px" />
           </NavLink>
           <div className="describ">
-            <span className="flname">Jason D Ronson</span>
+            <span className="flname">{user?.email}</span>
             <span className="work">
               {" "}
-              <strong>Supervisor</strong>{" "}
+              <strong>
+                {user?.id} {user?.firstName} {user?.lastName}
+              </strong>{" "}
             </span>
+            <span className="name"> {/* <strong></strong>{" "} */}</span>
           </div>
         </div>
       </div>
-
       <nav>
         <ul className="navlist">
           {navLinks.map((navLink) => (
@@ -76,5 +81,4 @@ function Sidebar() {
     </aside>
   );
 }
-
 export default Sidebar;

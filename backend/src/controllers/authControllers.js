@@ -6,7 +6,7 @@ const tables = require("../tables");
 const read = async (req, res) => {
   try {
     const user = await tables.users.readByEmail(req.body.email);
-    const { _id: userId } = user;
+    const { id: userId } = user;
 
     const validPassword = await bcrypt.compare(
       req.body.password,
@@ -20,7 +20,15 @@ const read = async (req, res) => {
     );
     res.cookie("authToken", token);
 
-    return res.json({ message: "Logged in!" }); // Add a return statement here
+    return res.json({
+      message: "Logged in!",
+      user: {
+        email: user.email,
+        id: userId,
+        firstName: user.first_name,
+        lastName: user.last_name,
+      }, // Add a comma here
+    });
   } catch (err) {
     return console.error;
   }
