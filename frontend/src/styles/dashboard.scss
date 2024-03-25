@@ -1,0 +1,21 @@
+@use "_variables.scss" as *;
+
+.dash_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .side {
+    width: 280px;
+  }
+
+  .dashBox {
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 280px);
+    height: 100vh;
+    overflow-y: auto;
+  }
+}

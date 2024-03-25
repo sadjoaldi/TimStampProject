@@ -1,0 +1,91 @@
+@use "_variables.scss" as *;
+
+.profilInfo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: $profilSettings;
+
+  height: 60svh;
+  //   margin-top: 60px;
+
+  .borderTop {
+    position: absolute;
+    top: 9.65rem;
+    right: 4.4rem;
+    width: 75%;
+    border: 1px solid $buttonColor;
+  }
+
+  img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+  }
+  .infoContent {
+    margin-top: 20px;
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: $buttonColor;
+      color: $secondaryColor;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
+}
+
+.calendar {
+  width: 95%;
+  margin: 2rem auto;
+  border: 1px solid black;
+  border-radius: 13px;
+  height: 33%;
+
+  .instruction_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.35rem 1.5rem;
+    .text_content {
+      h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+    }
+    button {
+      text-decoration: underline;
+      border: none;
+      background: none;
+    }
+  }
+
+  .butin {
+    border: 1px solid black;
+  }
+  .xampl {
+    display: flex;
+    align-items: center;
+    // .google {
+    // }
+    // .outlook {
+    // }
+  }
+}
