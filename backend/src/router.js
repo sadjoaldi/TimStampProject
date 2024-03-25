@@ -2,22 +2,33 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+const userControllers = require("./controllers/usersControllers");
+const workplaceControllers = require("./controllers/workplaceControllers");
+const agendaControllers = require("./controllers/agendaControllers");
+const authControllers = require("./controllers/authControllers");
 
-// Import itemControllers module for handling item-related operations
-const itemControllers = require("./controllers/itemControllers");
+// users routes
+router.get("/users", userControllers.browse);
+router.get("/users/:id", userControllers.read);
+router.post("/users", userControllers.add);
+router.put("/users/:id", userControllers.edit);
+router.delete("/users/:id", userControllers.destroy);
 
-// Route to get a list of items
-router.get("/items", itemControllers.browse);
+// login route
+router.post("/login", authControllers.read);
 
-// Route to get a specific item by ID
-router.get("/items/:id", itemControllers.read);
+// workplaces routes
+router.get("/workplace", workplaceControllers.browse);
+router.get("/workplace/:id", workplaceControllers.read);
+router.post("/workplace", workplaceControllers.add);
+router.put("/workplace/:id", workplaceControllers.edit);
+router.delete("/workplace/:id", workplaceControllers.destroy);
 
-// Route to add a new item
-router.post("/items", itemControllers.add);
-
-/* ************************************************************************* */
+// agenda routes
+router.get("/agenda", agendaControllers.browse);
+router.get("/agenda/:id", agendaControllers.read);
+router.post("/agenda", agendaControllers.add);
+router.put("/agenda/:id", agendaControllers.edit);
+router.delete("/agenda/:id", agendaControllers.destroy);
 
 module.exports = router;

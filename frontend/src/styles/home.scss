@@ -1,0 +1,127 @@
+@use "_variables.scss" as *;
+
+section {
+  min-height: 100svh;
+  background: url("../assets/background.jpg") no-repeat center/cover;
+  color: whitesmoke;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primaryColor;
+    background: $thirdColor;
+    margin: 1rem;
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+  }
+
+  ul {
+    background: $buttonColor;
+    position: relative;
+
+    li {
+      list-style: none;
+      position: absolute;
+      top: 0;
+      left: 100px;
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin: 0 1.12rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .icon {
+    font-size: 2.23rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 0.78rem;
+    background: $buttonColor;
+    color: $thirdColor;
+    border-radius: 0.2rem;
+    cursor: pointer;
+  }
+
+  .home {
+    display: flex;
+    align-items: center;
+
+    .home_container {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      margin: 5rem 0 0;
+
+      h2 {
+        margin: 0 0 1.5rem 2rem;
+        font-size: 2.2rem;
+      }
+
+      p {
+        line-height: 1.4;
+        color: $thirdColor;
+        width: 75%;
+        margin: 1.5rem 2.2rem;
+      }
+
+      a {
+        display: flex;
+      }
+      button {
+        display: inline-block;
+        border-radius: 4.4rem;
+        background: $buttonColor;
+        border: none;
+        color: $thirdColor;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 1rem;
+        width: 32%;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: auto 2.2rem;
+
+        &:hover span {
+          padding-right: 1rem;
+        }
+
+        & span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+
+          &:after {
+            content: "»";
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -15px;
+            transition: 0.5s;
+          }
+        }
+      }
+
+      button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+
+    .picture {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
